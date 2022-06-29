@@ -15,6 +15,7 @@ function App() {
         console.log(response.data);
         setCityImage(response.data.urls.regular);
       });
+    setCityImage("");
   };
   return (
     <div className="App">
