@@ -3,26 +3,37 @@ import axios from "axios";
 import { useState } from "react";
 
 function App() {
-  const [cityImage, setCityImage] = useState("");
+  const [city, setCity] = useState("");
 
   const fetchCityImage = (e) => {
     e.preventDefault();
     axios
       .get(
-        `https://api.unsplash.com/photos/random?query=${cityImage}&client_id=06K6Abw0z7-akEI1NG8Vu_uA8opl8S2wyXyG9FK5JOM`
+        `https://api.unsplash.com/photos/random?query=${city}&client_id=06K6Abw0z7-akEI1NG8Vu_uA8opl8S2wyXyG9FK5JOM`
       )
       .then((response) => {
         console.log(response.data);
-        setCityImage(response.data.urls.regular);
+        setCity(response.data.urls.regular);
       });
-    setCityImage("");
   };
+
+  const fetchCityWeather = (e) => {
+    e.preventDefault();
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=475b797ba66d1e6726639864d6add352`
+      )
+      .then((response) => {
+        console.log(response.data);
+      });
+  };
+
   return (
     <div className="App">
       {/* HEADER */}
       <div className="bg-black w-full h-[600px]">
         <img
-          src={cityImage}
+          src={city}
           alt="city image"
           className="w-full h-[600px] object-cover"
         />
@@ -33,9 +44,12 @@ function App() {
           </div>
 
           <div className="flex justify-center">
-            <form className="flex justify-between border border-white rounded-xl max-w-[300px] p-4">
+            <form
+              onSubmit={fetchCityImage}
+              className="flex justify-between border border-white rounded-xl max-w-[300px] p-4"
+            >
               <input
-                onChange={(e) => setCityImage(e.target.value)}
+                onChange={(e) => setCity(e.target.value)}
                 className="bg-transparent focus:outline-none placeholder:text-white"
                 type="text"
                 placeholder="Search a City..."
