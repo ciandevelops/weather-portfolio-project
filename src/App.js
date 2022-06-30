@@ -1,6 +1,6 @@
 import { BsSearch } from "react-icons/bs";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [city, setCity] = useState({});
@@ -36,7 +36,7 @@ function App() {
         {appData.main && (
           <img
             src={city}
-            alt="city image"
+            alt="city"
             className="w-full h-[600px] object-cover"
           />
         )}
@@ -87,7 +87,7 @@ function App() {
               <h1>Conditions:</h1>
               <p>{appData.weather[0].main}</p>
               <h1>Wind Speed:</h1>
-              <p>{appData.wind.speed.toFixed(0)}MPH</p>
+              <p>{appData.wind.speed.toFixed(0)} MPH</p>
             </div>
           </div>
         </div>
