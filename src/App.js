@@ -9,7 +9,7 @@ function App() {
   const fetchCityImage = () => {
     axios
       .get(
-        `https://api.unsplash.com/photos/random?query=${city}&client_id=06K6Abw0z7-akEI1NG8Vu_uA8opl8S2wyXyG9FK5JOM`
+        `https://api.unsplash.com/photos/random?query=${city}&client_id=${process.env.REACT_APP_UNSPLASH_API}`
       )
       .then((response) => {
         //console.log(response.data);
@@ -21,7 +21,7 @@ function App() {
     e.preventDefault();
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=475b797ba66d1e6726639864d6add352`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
       )
       .then((response) => {
         console.log(response.data);
