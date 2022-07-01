@@ -76,18 +76,35 @@ function App() {
               </h1>
             </div>
 
-            <div className="flex flex-col items-center justify-center py-2 border border-white max-w-[300px] rounded-xl">
-              <h1>Temperature:</h1>
-              <p>{appData.main.temp.toFixed(0)}&#176;c</p>
-              <h1>Feels Like</h1>
-              <p>{appData.main.feels_like.toFixed(0)}&#176;c</p>
+            <div className="flex justify-between items-center p-2 border border-white max-w-[300px] rounded-xl">
+              <div>
+                <h1>Temperature:</h1>
+                <p>{appData.main.temp.toFixed(0)}&#176;c</p>
+                <h1>Feels Like:</h1>
+                <p>{appData.main.feels_like.toFixed(0)}&#176;c</p>
+              </div>
+
+              <div>
+                <h1>Min Temperature:</h1>
+                <p>{appData.main.temp_min.toFixed(0)}&#176;c</p>
+                <h1>Max Temperature:</h1>
+                <p>{appData.main.temp_max.toFixed(0)}&#176;c</p>
+              </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center py-2 border border-white max-w-[300px] rounded-xl">
-              <h1>Conditions:</h1>
-              <p>{appData.weather[0].main}</p>
-              <h1>Wind Speed:</h1>
-              <p>{appData.wind.speed.toFixed(0)} MPH</p>
+            <div className="flex justify-between items-center p-2 border border-white max-w-[300px] rounded-xl">
+              <div>
+                <h1>Conditions:</h1>
+                <p>{appData.weather[0].main}</p>
+                <h1>Wind Speed:</h1>
+                <p>{appData.wind.speed.toFixed(0)} MPH</p>
+              </div>
+              <div>
+                <h1>Conditions:</h1>
+                <p>{appData.weather[0].main}</p>
+                <h1>Wind Speed:</h1>
+                <p>{appData.wind.speed.toFixed(0)} MPH</p>
+              </div>
             </div>
           </div>
         </div>
